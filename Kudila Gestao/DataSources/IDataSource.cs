@@ -9,7 +9,7 @@ namespace Kudila_Gestao.DataSources
 {
     internal interface IDataSource
     {
-        void OpenConnection();
+        bool OpenConnection();
         void CloseConnection();
         int Execute(string query);
         int Execute(string query, params object[] args);

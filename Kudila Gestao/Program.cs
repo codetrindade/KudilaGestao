@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudila_Gestao.Forms.Settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Kudila_Gestao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmDatabaseSettings());
         }
     }
 }

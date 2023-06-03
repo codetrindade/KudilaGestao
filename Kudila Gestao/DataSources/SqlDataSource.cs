@@ -15,9 +15,10 @@ namespace Kudila_Gestao.DataSources
         SqlDataReader dr;
         SqlDataAdapter da;
  
-        public void OpenConnection()
+        public bool OpenConnection()
         {
             try { connection.Open(); } catch { }
+            return false;
         }
         public void CloseConnection()
         {

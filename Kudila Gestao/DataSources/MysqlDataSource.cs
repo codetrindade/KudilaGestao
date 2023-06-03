@@ -1,29 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Kudila_Gestao.DataSources
 {
     internal class MysqlDataSource : IDataSource
     {
-        public static DataTable sqlDT = new DataTable();
-        public static string appPathPaciente = Application.StartupPath + @"\paciente\";
-        public static string appPathAvatar = Application.StartupPath + @"\avatar\";
-        //public static string connString = Properties.Settings.Default;
-        public static string sqlString;
-        public static string tmpStr;
-        public static string xUserPassword;
-        public static int userID;
-        public static string userName;
-        public static string userFullName;
-        public static string userFuncao;
-        public static string userEmail;
-        public static int LOGID;
 
+        public static DataTable sqlDT = new DataTable();
+        //public static string connString = Properties.Settings.Default;
+        MySqlConnection mySqlConnection = new  MySqlConnection(Kudila_Gestao.Properties.Settings.Default.ConnString);
+        
         public void CloseConnection()
         {
             throw new NotImplementedException();
@@ -39,9 +27,16 @@ namespace Kudila_Gestao.DataSources
             throw new NotImplementedException();
         }
 
-        public void OpenConnection()
-        {
-            throw new NotImplementedException();
+        public bool OpenConnection()
+        { 
+            try
+            {
+                mySqlConnection.Open();
+                return true;
+            }
+            catch {
+                return false;
+            }
         }
 
         public DataTable SelectAll(string query)
