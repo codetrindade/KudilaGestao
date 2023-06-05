@@ -25,9 +25,7 @@ namespace Kudila_Gestao.Controllers
                     connSource.conn = "server=localhost;uid=root; database=db_Comercial;uid=root;pwd=";
 
                 }
-                if (connSource.OpenConnection())
-                    return true;
-                else return false;
+                return (connSource.OpenConnection());
             }
             catch 
             {
